@@ -9,6 +9,7 @@ class UsersController < ApplicationController
 
   # GET /users/1 or /users/1.json
   def show
+    binding.pry
   end
 
   # GET /users/new
@@ -22,6 +23,7 @@ class UsersController < ApplicationController
 
   # POST /users or /users.json
   def create
+    # binding.pry
     @user = User.new(user_params)
 
     respond_to do |format|
@@ -61,6 +63,7 @@ class UsersController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user
+      # binding.pry
       @user = User.find(params[:id])
     end
 

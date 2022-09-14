@@ -12,21 +12,25 @@
     <%# <%= javascript_importmap_tags %>
   </head>
   <body>
-    <%= render 'layouts/navbar' %>
-    <% if flash[:notice] %>
-      <div class="alert alert-primary alert-dismissible fade show" role="alert">
-        <%= flash[:notice] %>
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    <div class="container">
+      <%= render 'layouts/navbar' %>
+      <% if flash[:notice] %>
+        <div class="alert alert-primary alert-dismissible fade show" role="alert">
+          <%= flash[:notice] %>
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+      <% end %>
+      <% if flash[:alerts] %>
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+          <%= flash[:alert] %>
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+      <% end %>
+      <div class="container-fluid mx-4" >
+        <div class="main-container">
+          <%= yield %>
+        </div>
       </div>
-    <% end %>
-    <% if flash[:alerts] %>
-      <div class="alert alert-warning alert-dismissible fade show" role="alert">
-        <%= flash[:alert] %>
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-      </div>
-    <% end %>
-    <div class="container-fluid mx-4" >
-      <%= yield %>
-    </div>
+    </div>  
   </body>
 </html>
